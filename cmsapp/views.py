@@ -9,7 +9,7 @@ def index(request):
 
 def detail(request,slug):
     post = Post.objects.get(slug=slug)
-    posts = Post.objects.exclude(post_id_exact=post.post_id)[:5]
+    posts = Post.objects.exclude(post_id=post.post_id)[:5]
     context={'post':post,'posts':posts}
     return render(request,'cmsapp/detail.html',context)
 
